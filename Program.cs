@@ -7,20 +7,19 @@ namespace ConsoleApp8_SlotMachine
         static void Main(string[] args)
         {
 
-            //Random rng = new Random();
-            //int Randomnumber = rng.Next(0, 9);
+           
 
             Console.WriteLine("Welcome to the slot Machine game! Choose the size of the grid / combination possibilities between 3 and 10. ");
-            int GridSize = int.Parse(Console.ReadLine());
+            Random rng = new Random();
+            int Randomnumber = rng.Next(0, 10);
             int slotGrid = 1;
 
-            int[,] SlotMachineGrid = new int[GridSize, GridSize];
+            int[,] SlotMachineGrid = new int[Randomnumber, Randomnumber];
 
-            for  (int rowindex = 0; rowindex < GridSize; rowindex++)
+            for  (int rowindex = 0; rowindex < Randomnumber; rowindex++)
             {
-                //Console.WriteLine(SlotMachineGrid[rowindex, 0]);
 
-                for (int columnindex = 0; columnindex < GridSize; columnindex++)
+                for (int columnindex = 0; columnindex < Randomnumber; columnindex++)
 
                 {
                     Console.Write(SlotMachineGrid[rowindex, columnindex] = slotGrid);
@@ -28,7 +27,7 @@ namespace ConsoleApp8_SlotMachine
 
                     slotGrid++;
 
-                    if (slotGrid > GridSize)
+                    if (slotGrid > Randomnumber)
                     { break; }
                 }
 
