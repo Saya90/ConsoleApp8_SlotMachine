@@ -18,17 +18,23 @@ namespace ConsoleApp8_SlotMachine
 
             for  (int rowindex = 0; rowindex < GridSize; rowindex++)
             {
-                Console.WriteLine(SlotMachineGrid[rowindex, 0]);
+                //Console.WriteLine(SlotMachineGrid[rowindex, 0]);
 
                 for (int columnindex = 0; columnindex < GridSize; columnindex++)
 
                 {
-                    Console.WriteLine(SlotMachineGrid[rowindex, columnindex] = slotGrid);
+                    Console.Write(SlotMachineGrid[rowindex, columnindex] = slotGrid);
                     Console.Write('|');
+
                     slotGrid++;
 
+                    if (slotGrid > GridSize)
+                    { break; }
                 }
 
+                Console.WriteLine();
+
+               
             }
         }
     }
