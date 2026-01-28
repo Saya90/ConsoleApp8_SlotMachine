@@ -12,12 +12,13 @@ namespace ConsoleApp8_SlotMachine
             Console.WriteLine("Welcome to the slot Machine game! Choose the size of the grid / combination possibilities between 3 and 10. ");
             Random rng = new Random();
             int Randomnumber = rng.Next(0, 10);
-            int slotGrid = 1;
+            //int slotGrid = 1;
 
             int[,] SlotMachineGrid = new int[Randomnumber, Randomnumber];
 
             for  (int rowindex = 0; rowindex < Randomnumber; rowindex++)
             {
+                int slotGrid = 1;
 
                 for (int columnindex = 0; columnindex < Randomnumber; columnindex++)
 
@@ -27,13 +28,11 @@ namespace ConsoleApp8_SlotMachine
 
                     slotGrid++;
 
-                    if (slotGrid > Randomnumber)
-                    { break; }
                 }
 
                 Console.WriteLine();
+              
 
-               
             }
         }
     }
