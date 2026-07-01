@@ -1,4 +1,5 @@
 ﻿using System.Data;
+using System.Reflection.Metadata;
 
 namespace ConsoleApp8_SlotMachine
 {
@@ -9,34 +10,49 @@ namespace ConsoleApp8_SlotMachine
 
            
 
-            Console.WriteLine("Welcome to the slot Machine game! Choose the size of the grid / combination possibilities between 3 and 10. ");
+            Console.WriteLine("Welcome to the slot Machine game! Choose from the following options." +
+                " 1 for  playing only center line, 2 for all horizontal lines, 3 for all vertical lines and"+
+                 " 4 for all diagonals. ");
+
+            const int GRID_SIZE = 3;
             Random rng = new Random();
-            int Randomnumber = rng.Next(0, 10);
+            int Randomnumber = rng.Next(3, 3);
             //int slotGrid = 1;
 
-            int[,] SlotMachineGrid = new int[Randomnumber, Randomnumber];
+            int[,] SlotMachineGrid = new int[GRID_SIZE, GRID_SIZE];
 
             for  (int rowindex = 0; rowindex < Randomnumber; rowindex++)
             {
-                int slotGrid = 1;
-
+               
                 for (int columnindex = 0; columnindex < Randomnumber; columnindex++)
 
                 {
-                    Console.Write(SlotMachineGrid[rowindex, columnindex] = slotGrid);
-                    Console.Write('|');
-
-                    slotGrid++;
+                    SlotMachineGrid[rowindex, columnindex] = rng.Next(3, 3);
 
                 }
 
+                             
+
+            }
+
+
+            for (int rowindex = 0; rowindex < Randomnumber; rowindex++)
+            {
+                
+                for (int columnindex = 0; columnindex < Randomnumber; columnindex++)
+
+                {
+                    Console.Write(SlotMachineGrid[rowindex, columnindex]);
+                    Console.Write('|');
+
+                }
                 Console.WriteLine();
-              
+                //if mode == 1 )
 
             }
         }
-    }
-}
+
+}   }
 //Design a game where the user can play a make-believe slot machine. The user will be asked to make a wager to play
 //various lines in a 3 x 3 grid. They can play center line, all three horizontal lines, all vertical lines and
 //diagonals. For instance the user can enter $3 dollars and play all three horizontal lines. If the top line hits
