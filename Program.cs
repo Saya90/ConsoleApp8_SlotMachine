@@ -16,18 +16,18 @@ namespace ConsoleApp8_SlotMachine
 
             const int GRID_SIZE = 3;
             Random rng = new Random();
-            int Randomnumber = rng.Next(3, 3);
+            int Randomnumber = rng.Next(1, 4);
             //int slotGrid = 1;
 
             int[,] SlotMachineGrid = new int[GRID_SIZE, GRID_SIZE];
 
-            for  (int rowindex = 0; rowindex < Randomnumber; rowindex++)
+            for  (int rowindex = 0; rowindex < GRID_SIZE; rowindex++)
             {
                
-                for (int columnindex = 0; columnindex < Randomnumber; columnindex++)
+                for (int columnindex = 0; columnindex < GRID_SIZE; columnindex++)
 
                 {
-                    SlotMachineGrid[rowindex, columnindex] = rng.Next(3, 3);
+                    SlotMachineGrid[rowindex, columnindex] = rng.Next(1, 4);
 
                 }
 
@@ -36,10 +36,10 @@ namespace ConsoleApp8_SlotMachine
             }
 
 
-            for (int rowindex = 0; rowindex < Randomnumber; rowindex++)
+            for (int rowindex = 0; rowindex < GRID_SIZE; rowindex++)
             {
                 
-                for (int columnindex = 0; columnindex < Randomnumber; columnindex++)
+                for (int columnindex = 0; columnindex < GRID_SIZE; columnindex++)
 
                 {
                     Console.Write(SlotMachineGrid[rowindex, columnindex]);
@@ -47,12 +47,12 @@ namespace ConsoleApp8_SlotMachine
 
                 }
                 Console.WriteLine();
-                //if mode == 1 )
+               
 
             }
-        }
+        }   //if mode == 1 )
 
-}   }
+    }   }
 //Design a game where the user can play a make-believe slot machine. The user will be asked to make a wager to play
 //various lines in a 3 x 3 grid. They can play center line, all three horizontal lines, all vertical lines and
 //diagonals. For instance the user can enter $3 dollars and play all three horizontal lines. If the top line hits
