@@ -10,26 +10,26 @@ namespace ConsoleApp8_SlotMachine
             Console.WriteLine("Welcome to the slot Machine game! Choose from the following options in this 3X3 grid.");
             Console.WriteLine();
             Console.WriteLine("Choose 1 for playing only center line (Cost = 1Euro )");
-            Console.WriteLine("Choose 2 for playing all 3  lines (Cost per line = 1Euro )");
-            Console.WriteLine("Choose 3 for all horizontal lines (Cost = 3Euros)");
-            Console.WriteLine("Choose 4 for all vertical lines ");
-            Console.WriteLine("Choose 5 for diagonals");
- 
+            //Console.WriteLine("Choose 2 for playing all 3  lines (Cost per line = 1Euro )");
+            Console.WriteLine("Choose 2 for all horizontal lines (Cost per line = 1Euro )");
+            Console.WriteLine("Choose 3 for all vertical lines ");
+            Console.WriteLine("Choose 4 for all diagonal lines");
 
-            int choice = int.Parse(Console.ReadLine());
-            int costCentralLine = 1;
-            int CostHorizontalLine = 3;
-            int CostVerticalLine = 4;
 
-           const int GRID_SIZE = 3;
+            const int CENTRAL_LINE = 1;
+            const int HORIZONTAL_LINES = 2;
+            const int VERTICAL_LINES = 3;
+            const int DIAGONAL_LINES = 4;
+
+
+            const int GRID_SIZE = 3;
             Random rng = new Random();
             int Randomnumber = rng.Next(1, 4);
             //int slotGrid = 1;
 
+            int choice = Convert.ToInt32(Console.ReadLine());
 
-            
-
-             Console.WriteLine($"You chose {choice}");
+            Console.WriteLine($"You chose {choice}");
 
             int[,] SlotMachineGrid = new int[GRID_SIZE, GRID_SIZE];
 
