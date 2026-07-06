@@ -7,23 +7,35 @@ namespace ConsoleApp8_SlotMachine
     {
         static void Main(string[] args)
         {
+            Console.WriteLine("Welcome to the slot Machine game! Choose from the following options in this 3X3 grid.");
+            Console.WriteLine();
+            Console.WriteLine("Choose 1 for playing only center line (Cost = 1Euro )");
+            Console.WriteLine("Choose 2 for playing all 3  lines (Cost per line = 1Euro )");
+            Console.WriteLine("Choose 3 for all horizontal lines (Cost = 3Euros)");
+            Console.WriteLine("Choose 4 for all vertical lines ");
+            Console.WriteLine("Choose 5 for diagonals");
+ 
 
-           
+            int choice = int.Parse(Console.ReadLine());
+            int costCentralLine = 1;
+            int CostHorizontalLine = 3;
+            int CostVerticalLine = 4;
 
-            Console.WriteLine("Welcome to the slot Machine game! Choose from the following options." +
-                " 1 for  playing only center line, 2 for all horizontal lines, 3 for all vertical lines and"+
-                 " 4 for all diagonals. ");
-
-            const int GRID_SIZE = 3;
+           const int GRID_SIZE = 3;
             Random rng = new Random();
             int Randomnumber = rng.Next(1, 4);
             //int slotGrid = 1;
 
+
+            
+
+             Console.WriteLine($"You chose {choice}");
+
             int[,] SlotMachineGrid = new int[GRID_SIZE, GRID_SIZE];
 
-            for  (int rowindex = 0; rowindex < GRID_SIZE; rowindex++)
+            for (int rowindex = 0; rowindex < GRID_SIZE; rowindex++)
             {
-               
+
                 for (int columnindex = 0; columnindex < GRID_SIZE; columnindex++)
 
                 {
@@ -31,14 +43,14 @@ namespace ConsoleApp8_SlotMachine
 
                 }
 
-                             
+
 
             }
 
 
             for (int rowindex = 0; rowindex < GRID_SIZE; rowindex++)
             {
-                
+
                 for (int columnindex = 0; columnindex < GRID_SIZE; columnindex++)
 
                 {
@@ -47,12 +59,13 @@ namespace ConsoleApp8_SlotMachine
 
                 }
                 Console.WriteLine();
-               
+
 
             }
         }   //if mode == 1 )
 
-    }   }
+    }
+}
 //Design a game where the user can play a make-believe slot machine. The user will be asked to make a wager to play
 //various lines in a 3 x 3 grid. They can play center line, all three horizontal lines, all vertical lines and
 //diagonals. For instance the user can enter $3 dollars and play all three horizontal lines. If the top line hits
