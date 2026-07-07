@@ -9,27 +9,40 @@ namespace ConsoleApp8_SlotMachine
         {
             Console.WriteLine("Welcome to the slot Machine game! Choose from the following options in this 3X3 grid.");
             Console.WriteLine();
-            Console.WriteLine("Choose 1 for playing only center line (Cost = 1Euro )");
-            //Console.WriteLine("Choose 2 for playing all 3  lines (Cost per line = 1Euro )");
-            Console.WriteLine("Choose 2 for all horizontal lines (Cost per line = 1Euro )");
-            Console.WriteLine("Choose 3 for all vertical lines ");
-            Console.WriteLine("Choose 4 for all diagonal lines");
+            Console.WriteLine("Choose 1 for playing only center line. (Cost = 1Euro )");
+            Console.WriteLine("Choose 2 for all horizontal lines. (Cost per line = 1Euro )");
+            Console.WriteLine("Choose 3 for all vertical lines. (Cost per line = 1Euro )");
+            Console.WriteLine("Choose 4 for all diagonal lines.(Cost per line = 1Euro )");
 
 
             const int CENTRAL_LINE = 1;
             const int HORIZONTAL_LINES = 2;
             const int VERTICAL_LINES = 3;
             const int DIAGONAL_LINES = 4;
+            const int COST_ONE_LINE = 1;
+            const int COST_HORIZONTAL_LINES = 3;
+            const int COST_VERTICAL_LINES = 3;
+            const int COST_DIAGONAL_LINES = 2;
 
+            int bet = 0;
+            int totalWin = 0;
+
+
+
+            int mode = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine($"You chose {mode}");
+            Console.WriteLine($"Now please chose how much you want to bet! Minimum is 1 Euro. ");
+            int betAmount = Convert.ToInt32(Console.ReadLine());
+
+            //Console.WriteLine( { betAmount * }
 
             const int GRID_SIZE = 3;
             Random rng = new Random();
             int Randomnumber = rng.Next(1, 4);
             //int slotGrid = 1;
 
-            int choice = Convert.ToInt32(Console.ReadLine());
 
-            Console.WriteLine($"You chose {choice}");
+            //Console.WriteLine($"{betAmount + 1 }");
 
             int[,] SlotMachineGrid = new int[GRID_SIZE, GRID_SIZE];
 
@@ -62,8 +75,32 @@ namespace ConsoleApp8_SlotMachine
 
 
             }
-        }   //if mode == 1 )
+            if (mode == CENTRAL_LINE)
+            {
+                for (int row = 1; row < 4; row++)
+                {
+                    if (SlotMachineGrid[row, 0] == SlotMachineGrid[row, 1] && SlotMachineGrid[row, 1] == SlotMachineGrid[row, 2])
+                    {
+                        Console.WriteLine($"Row {row} wins!");
+                    }
+                }
+            }
+            else if (mode == HORIZONTAL_LINES)
+            {
+                for (int row = 1; row < 4; row++)
+                {
+                    if (SlotMachineGrid[row, 0] == SlotMachineGrid[row, 1] && SlotMachineGrid[row, 1] == SlotMachineGrid[row, 2])
+                    {
+                        Console.WriteLine($"Row {row} wins!");
+                    }
 
+                    else if (mode == DIAGONAL_LINES)
+                    {
+
+                    }
+                }
+            }
+        }
     }
 }
 //Design a game where the user can play a make-believe slot machine. The user will be asked to make a wager to play
