@@ -1,4 +1,5 @@
-﻿using System.Data;
+﻿using System;
+using System.Data;
 using System.Reflection.Metadata;
 
 namespace ConsoleApp8_SlotMachine
@@ -7,12 +8,6 @@ namespace ConsoleApp8_SlotMachine
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Welcome to the slot Machine game! Choose from the following options in this 3X3 grid.");
-            Console.WriteLine();
-            Console.WriteLine("Choose 1 for playing only center line. (Cost = 1Euro )");
-            Console.WriteLine("Choose 2 for all horizontal lines. (Cost per line = 1Euro )");
-            Console.WriteLine("Choose 3 for all vertical lines. (Cost per line = 1Euro )");
-            Console.WriteLine("Choose 4 for all diagonal lines.(Cost per line = 1Euro )");
 
 
             const int CENTRAL_LINE = 1;
@@ -24,15 +19,38 @@ namespace ConsoleApp8_SlotMachine
             const int COST_VERTICAL_LINES = 3;
             const int COST_DIAGONAL_LINES = 2;
 
+            Console.WriteLine("Welcome to the slot Machine game! Choose from the following options in this 3X3 grid.");
+            Console.WriteLine();
+            Console.WriteLine("Choose 1 for playing only center line. (Cost = 1Euro )");
+            Console.WriteLine("Choose 2 for all horizontal lines. (Cost per line = 1Euro )");
+            Console.WriteLine("Choose 3 for all vertical lines. (Cost per line = 1Euro )");
+            Console.WriteLine("Choose 4 for all diagonal lines.(Cost per line = 1Euro )");
+
+            int mode = Convert.ToInt32(Console.ReadLine());
+
+            if (mode < 1 || mode > 4)
+            {
+                Console.WriteLine("Invalid input");
+                return;
+            }
+
+            else
+            {
+                Console.WriteLine($"You chose {mode}");
+            }
+
+            Console.WriteLine($"Now please chose how much you want to bet! Minimum is 1 Euro. ");
+            int betAmount = Convert.ToInt32(Console.ReadLine());
+
+            //bool mode = true;
+
+            
+
+
             int bet = 0;
             int totalWin = 0;
 
-
-
-            int mode = Convert.ToInt32(Console.ReadLine());
-            Console.WriteLine($"You chose {mode}");
-            Console.WriteLine($"Now please chose how much you want to bet! Minimum is 1 Euro. ");
-            int betAmount = Convert.ToInt32(Console.ReadLine());
+            
 
             //Console.WriteLine( { betAmount * }
 
@@ -55,8 +73,6 @@ namespace ConsoleApp8_SlotMachine
                     SlotMachineGrid[rowindex, columnindex] = rng.Next(1, 4);
 
                 }
-
-
 
             }
 
