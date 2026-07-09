@@ -18,7 +18,7 @@ namespace ConsoleApp8_SlotMachine
             const int COST_HORIZONTAL_LINES = 3;
             const int COST_VERTICAL_LINES = 3;
             const int COST_DIAGONAL_LINES = 2;
-           
+
 
             Console.WriteLine("Welcome to the slot Machine game! Choose from the following options in this 3X3 grid.");
             Console.WriteLine();
@@ -43,9 +43,9 @@ namespace ConsoleApp8_SlotMachine
             Console.WriteLine($"Now please chose how much you want to bet! Minimum is 1 Euro. ");
             double betAmount = Convert.ToInt32(Console.ReadLine());
 
-            if (betAmount < 1 )
+            if (betAmount < 1)
             {
-                Console.WriteLine("Please choose minimum 1 Euro to start") ;
+                Console.WriteLine("Please choose minimum 1 Euro to start");
                 return;
             }
 
@@ -65,6 +65,8 @@ namespace ConsoleApp8_SlotMachine
             calculateCenterLine = (GRID_SIZE / 2);
             //Console.WriteLine($"{betAmount + 1 }");
 
+
+
             int[,] SlotMachineGrid = new int[GRID_SIZE, GRID_SIZE];
 
             for (int rowindex = 0; rowindex < GRID_SIZE; rowindex++)
@@ -75,6 +77,7 @@ namespace ConsoleApp8_SlotMachine
                 {
                     SlotMachineGrid[rowindex, columnindex] = rng.Next(1, 4);
 
+               
                 }
 
             }
@@ -92,8 +95,13 @@ namespace ConsoleApp8_SlotMachine
                 }
                 Console.WriteLine();
 
-
+            if (SlotMachineGrid[calculateCenterLine, 0] == SlotMachineGrid[calculateCenterLine, 1] &&
+                    SlotMachineGrid[calculateCenterLine, 1] == SlotMachineGrid[calculateCenterLine, 2])
+                {
+                    Console.WriteLine("Win!");
+                }
             }
+
             if (mode == CENTRAL_LINE)
             {
                 for (int row = 1; row < 4; row++)
@@ -113,15 +121,13 @@ namespace ConsoleApp8_SlotMachine
                         Console.WriteLine($"Row {row} wins!");
                     }
 
-                    else if (mode == DIAGONAL_LINES)
-                    {
-
-                    }
                 }
             }
         }
     }
 }
+
+
 //Design a game where the user can play a make-believe slot machine. The user will be asked to make a wager to play
 //various lines in a 3 x 3 grid. They can play center line, all three horizontal lines, all vertical lines and
 //diagonals. For instance the user can enter $3 dollars and play all three horizontal lines. If the top line hits
