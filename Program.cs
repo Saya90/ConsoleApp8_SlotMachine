@@ -18,6 +18,7 @@ namespace ConsoleApp8_SlotMachine
             const int COST_HORIZONTAL_LINES = 3;
             const int COST_VERTICAL_LINES = 3;
             const int COST_DIAGONAL_LINES = 2;
+           
 
             Console.WriteLine("Welcome to the slot Machine game! Choose from the following options in this 3X3 grid.");
             Console.WriteLine();
@@ -48,14 +49,10 @@ namespace ConsoleApp8_SlotMachine
                 return;
             }
 
-           
-
-
-
             int bet = 0;
             int totalWin = 0;
 
-            
+
 
             //Console.WriteLine( { betAmount * }
 
@@ -63,8 +60,9 @@ namespace ConsoleApp8_SlotMachine
             Random rng = new Random();
             int Randomnumber = rng.Next(1, 4);
             //int slotGrid = 1;
-
-
+            // how to determin the center line 3 / 2 = 1.5-> 1
+            int calculateCenterLine = 0;
+            calculateCenterLine = (GRID_SIZE / 2);
             //Console.WriteLine($"{betAmount + 1 }");
 
             int[,] SlotMachineGrid = new int[GRID_SIZE, GRID_SIZE];
