@@ -40,11 +40,16 @@ namespace ConsoleApp8_SlotMachine
             }
 
             Console.WriteLine($"Now please chose how much you want to bet! Minimum is 1 Euro. ");
-            int betAmount = Convert.ToInt32(Console.ReadLine());
+            double betAmount = Convert.ToInt32(Console.ReadLine());
 
-            //bool mode = true;
+            if (betAmount < 1 )
+            {
+                Console.WriteLine("Please choose minimum 1 Euro to start") ;
+                return;
+            }
 
-            
+           
+
 
 
             int bet = 0;
