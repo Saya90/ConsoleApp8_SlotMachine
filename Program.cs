@@ -83,6 +83,7 @@ namespace ConsoleApp8_SlotMachine
             }
 
 
+
             for (int rowindex = 0; rowindex < GRID_SIZE; rowindex++)
             {
 
@@ -94,21 +95,19 @@ namespace ConsoleApp8_SlotMachine
 
                 }
                 Console.WriteLine();
-
-            if (SlotMachineGrid[calculateCenterLine, 0] == SlotMachineGrid[calculateCenterLine, 1] &&
-                    SlotMachineGrid[calculateCenterLine, 1] == SlotMachineGrid[calculateCenterLine, 2])
-                {
-                    Console.WriteLine("Win!");
-                }
             }
 
+           
+           
             if (mode == CENTRAL_LINE)
             {
-                for (int row = 1; row < 4; row++)
+                for (int i = 0; i < GRID_SIZE; i++)
                 {
-                    if (SlotMachineGrid[row, 0] == SlotMachineGrid[row, 1] && SlotMachineGrid[row, 1] == SlotMachineGrid[row, 2])
+                    if (SlotMachineGrid[calculateCenterLine, 0] != SlotMachineGrid[calculateCenterLine, i])
                     {
-                        Console.WriteLine($"Row {row} wins!");
+                        Console.WriteLine("Sorry you lose.");
+                        break;
+
                     }
                 }
             }
@@ -127,6 +126,11 @@ namespace ConsoleApp8_SlotMachine
     }
 }
 
+// if (SlotMachineGrid[calculateCenterLine, 0] == SlotMachineGrid[calculateCenterLine, 1] &&
+//SlotMachineGrid[calculateCenterLine, 1] == SlotMachineGrid[calculateCenterLine, 2])
+//  {
+    //Console.WriteLine("Win!");
+//}
 
 //Design a game where the user can play a make-believe slot machine. The user will be asked to make a wager to play
 //various lines in a 3 x 3 grid. They can play center line, all three horizontal lines, all vertical lines and
