@@ -26,18 +26,24 @@ namespace ConsoleApp8_SlotMachine
             Console.WriteLine("Choose 2 for all horizontal lines. (Cost per line = 1Euro )");
             Console.WriteLine("Choose 3 for all vertical lines. (Cost per line = 1Euro )");
             Console.WriteLine("Choose 4 for all diagonal lines.(Cost per line = 1Euro )");
+            
+            
 
-            int mode = Convert.ToInt32(Console.ReadLine());
-
-            if (mode < 1 || mode > 4)
+            for (;;)
             {
-                Console.WriteLine("Invalid input");
-                return;
-            }
+                int mode = Convert.ToInt32(Console.ReadLine());
 
-            else
-            {
-                Console.WriteLine($"You chose {mode}");
+                if (mode < 1 || mode > 4)
+                {
+                    Console.WriteLine("Invalid input");
+                    return; 
+                }
+
+                else
+                {
+                    Console.WriteLine($"You chose {mode}");
+                    break;
+                }
             }
 
             Console.WriteLine($"Now please chose how much you want to bet! Minimum is 1 Euro. ");
@@ -77,7 +83,7 @@ namespace ConsoleApp8_SlotMachine
                 {
                     SlotMachineGrid[rowindex, columnindex] = rng.Next(1, 4);
 
-               
+
                 }
 
             }
@@ -97,8 +103,8 @@ namespace ConsoleApp8_SlotMachine
                 Console.WriteLine();
             }
 
-           
-           
+
+
             if (mode == CENTRAL_LINE)
             {
                 for (int i = 0; i < GRID_SIZE; i++)
@@ -129,7 +135,7 @@ namespace ConsoleApp8_SlotMachine
 // if (SlotMachineGrid[calculateCenterLine, 0] == SlotMachineGrid[calculateCenterLine, 1] &&
 //SlotMachineGrid[calculateCenterLine, 1] == SlotMachineGrid[calculateCenterLine, 2])
 //  {
-    //Console.WriteLine("Win!");
+//Console.WriteLine("Win!");
 //}
 
 //Design a game where the user can play a make-believe slot machine. The user will be asked to make a wager to play
