@@ -143,7 +143,9 @@ namespace ConsoleApp8_SlotMachine
                 }
 
                 else
-                { Console.WriteLine("Sorry you lose"); }
+                {
+                    Console.WriteLine("Sorry you lose");
+                }
 
 
             }
@@ -174,12 +176,52 @@ namespace ConsoleApp8_SlotMachine
                     }
 
                     else
-                    { Console.WriteLine("Sorry you lose"); }
+                    {
+                        Console.WriteLine("Sorry you lose");
+                    }
+                }
+            }
 
-                    
+            else if (mode == VERTICAL_LINES)
+            {
+
+                for (int columnindex = 0; columnindex < GRID_SIZE; columnindex++)
+                {
+
+
+                    for (int rowindex = 0; rowindex < GRID_SIZE; rowindex++)
+
+                    {
+                        if (SlotMachineGrid[columnindex, 0] != SlotMachineGrid[columnindex, rowindex])
+                        {
+
+                            win = false;
+
+                            break;
+
+                        }
+                    }
+
+
+                    if (win)
+                    {
+                        Console.WriteLine("Wow, You won!");
+                    }
+
+                    else
+                    {
+                        Console.WriteLine("Sorry you lose");
+                    }
+
                 }
 
+
             }
+            else if (mode == DIAGONAL_LINES)
+            {
+                jkj;
+            }
+
         }
     }
 }
