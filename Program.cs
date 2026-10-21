@@ -26,17 +26,22 @@ namespace ConsoleApp8_SlotMachine
             Console.WriteLine("Choose 2 for all horizontal lines. (Cost per line = 1Euro )");
             Console.WriteLine("Choose 3 for all vertical lines. (Cost per line = 1Euro )");
             Console.WriteLine("Choose 4 for all diagonal lines.(Cost per line = 1Euro )");
-            
-            
 
-            for (;;)
+            int mode = 0;
+
+            while (true)
             {
-                int mode = Convert.ToInt32(Console.ReadLine());
+                if (!int.TryParse(Console.ReadLine(), out mode))
+                {
+                    Console.WriteLine("Invalid input. Please enter a number.");
+                    continue;
+                }
+                
 
                 if (mode < 1 || mode > 4)
                 {
-                    Console.WriteLine("Invalid input");
-                    return; 
+                    Console.WriteLine("Invalid input. Please choose from 1 to 4");
+
                 }
 
                 else
@@ -47,90 +52,134 @@ namespace ConsoleApp8_SlotMachine
             }
 
             Console.WriteLine($"Now please chose how much you want to bet! Minimum is 1 Euro. ");
-            double betAmount = Convert.ToInt32(Console.ReadLine());
+            int betAmount = 0;
 
-            if (betAmount < 1)
+            while (true)
             {
-                Console.WriteLine("Please choose minimum 1 Euro to start");
-                return;
-            }
-
-            int bet = 0;
-            int totalWin = 0;
-
-
-
-            //Console.WriteLine( { betAmount * }
-
-            const int GRID_SIZE = 3;
-            Random rng = new Random();
-            int Randomnumber = rng.Next(1, 4);
-            //int slotGrid = 1;
-            // how to determin the center line 3 / 2 = 1.5-> 1
-            int calculateCenterLine = 0;
-            calculateCenterLine = (GRID_SIZE / 2);
-            //Console.WriteLine($"{betAmount + 1 }");
-
-
-
-            int[,] SlotMachineGrid = new int[GRID_SIZE, GRID_SIZE];
-
-            for (int rowindex = 0; rowindex < GRID_SIZE; rowindex++)
-            {
-
-                for (int columnindex = 0; columnindex < GRID_SIZE; columnindex++)
-
+                if (!int.TryParse(Console.ReadLine(), out betAmount))
                 {
-                    SlotMachineGrid[rowindex, columnindex] = rng.Next(1, 4);
-
-
+                    Console.WriteLine("Invalid input. Please enter a number.");
+                    continue;
                 }
 
-            }
+                if (betAmount < 1)
+                {
+                    Console.WriteLine("Please choose minimum 1 Euro to start");
+                }
 
-
-
-            for (int rowindex = 0; rowindex < GRID_SIZE; rowindex++)
-            {
-
-                for (int columnindex = 0; columnindex < GRID_SIZE; columnindex++)
+                else
 
                 {
-                    Console.Write(SlotMachineGrid[rowindex, columnindex]);
-                    Console.Write('|');
+                    Console.WriteLine($"You chose {betAmount} Euros");
+
+                    break;
 
                 }
-                Console.WriteLine();
             }
 
+                int bet = 0;
+                int totalWin = 0;
 
 
-            if (mode == CENTRAL_LINE)
-            {
-                for (int i = 0; i < GRID_SIZE; i++)
+
+                //Console.WriteLine( { betAmount * }
+
+                const int GRID_SIZE = 3;
+                Random rng = new Random();
+                int Randomnumber = rng.Next(1, 4);
+                //int slotGrid = 1;
+                // how to determin the center line 3 / 2 = 1.5-> 1
+                int calculateCenterLine = 0;
+                calculateCenterLine = (GRID_SIZE / 2);
+                //Console.WriteLine($"{betAmount + 1 }");
+
+
+                //Grid generation
+                int[,] SlotMachineGrid = new int[GRID_SIZE, GRID_SIZE];
+
+                for (int rowindex = 0; rowindex < GRID_SIZE; rowindex++)
                 {
-                    if (SlotMachineGrid[calculateCenterLine, 0] != SlotMachineGrid[calculateCenterLine, i])
+
+                    for (int columnindex = 0; columnindex < GRID_SIZE; columnindex++)
+
                     {
-                        Console.WriteLine("Sorry you lose.");
-                        break;
+                        SlotMachineGrid[rowindex, columnindex] = 1; //rng.Next(1, 4);
+
 
                     }
+
                 }
-            }
-            else if (mode == HORIZONTAL_LINES)
-            {
-                for (int row = 1; row < 4; row++)
+
+                //GRID POPULATION
+                for (int rowindex = 0; rowindex < GRID_SIZE; rowindex++)
                 {
-                    if (SlotMachineGrid[row, 0] == SlotMachineGrid[row, 1] && SlotMachineGrid[row, 1] == SlotMachineGrid[row, 2])
+
+                    for (int columnindex = 0; columnindex < GRID_SIZE; columnindex++)
+
                     {
-                        Console.WriteLine($"Row {row} wins!");
+                        Console.Write(SlotMachineGrid[rowindex, columnindex]);
+                        Console.Write('|');
+
+                    }
+                    Console.WriteLine();
+                }
+
+
+                bool win = true;
+                if (mode == CENTRAL_LINE)
+                {
+                    for (int i = 0; i < GRID_SIZE; i++)
+                    {
+                        if (SlotMachineGrid[calculateCenterLine, 0] != SlotMachineGrid[calculateCenterLine, i])
+                        {
+                            win = false;
+                            break;
+
+                        }
+                    }
+                    if (win)
+                    {
+                        Console.WriteLine("Wow, You win!");
+                    }
+
+                    else
+                    { Console.WriteLine("Sorry you lose"); }
+
+
+                }
+                else if (mode == HORIZONTAL_LINES)
+                {
+
+
+                    for (int rowindex = 0; rowindex < GRID_SIZE; rowindex++)
+                    {
+
+
+                        for (int columnindex = 0; columnindex < GRID_SIZE; columnindex++)
+
+                        {
+                            if (SlotMachineGrid[rowindex, 0] != SlotMachineGrid[rowindex, columnindex])
+                            {
+                                Console.WriteLine("Sorry you lose.");
+                                break;
+                            }
+
+
+                            else
+
+                                Console.WriteLine("Wow, You win!");
+                        }
+                        Console.WriteLine();
+
+
+
                     }
 
                 }
             }
         }
     }
-}
+
 
 // if (SlotMachineGrid[calculateCenterLine, 0] == SlotMachineGrid[calculateCenterLine, 1] &&
 //SlotMachineGrid[calculateCenterLine, 1] == SlotMachineGrid[calculateCenterLine, 2])
