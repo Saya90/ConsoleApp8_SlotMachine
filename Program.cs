@@ -103,7 +103,7 @@ namespace ConsoleApp8_SlotMachine
                 for (int columnindex = 0; columnindex < GRID_SIZE; columnindex++)
 
                 {
-                    SlotMachineGrid[rowindex, columnindex] = 1; //rng.Next(1, 4);
+                    SlotMachineGrid[rowindex, columnindex] =  rng.Next(1, 4);
 
 
                 }
@@ -169,16 +169,16 @@ namespace ConsoleApp8_SlotMachine
                         }
                     }
 
+                }
 
-                    if (win)
-                    {
-                        Console.WriteLine("Wow, You won!");
-                    }
+                if (win)
+                {
+                    Console.WriteLine("Wow, You won!");
+                }
 
-                    else
-                    {
-                        Console.WriteLine("Sorry you lose");
-                    }
+                else
+                {
+                    Console.WriteLine("Sorry you lose");
                 }
             }
 
@@ -201,26 +201,56 @@ namespace ConsoleApp8_SlotMachine
 
                         }
                     }
-
-
-                    if (win)
-                    {
-                        Console.WriteLine("Wow, You won!");
-                    }
-
-                    else
-                    {
-                        Console.WriteLine("Sorry you lose");
-                    }
-
                 }
 
+                if (win)
+                {
+                    Console.WriteLine("Wow, You won!");
+                }
+
+                else
+                {
+                    Console.WriteLine("Sorry you lose");
+                }
 
             }
             else if (mode == DIAGONAL_LINES)
             {
-                jkj;
+
+
+                for (int columnindex = 0; columnindex < GRID_SIZE; columnindex++)
+                {
+
+
+                    for (int rowindex = 0; rowindex < GRID_SIZE; rowindex++)
+
+                    {
+                        if (SlotMachineGrid[columnindex, 0] != SlotMachineGrid[rowindex, rowindex])
+                        {
+
+                            win = false;
+
+                            break;
+
+                        }
+                    }
+
+
+
+                   
+                }
+
+                if (win)
+                {
+                    Console.WriteLine("Wow, You won!");
+                }
+
+                else
+                {
+                    Console.WriteLine("Sorry you lose");
+                }
             }
+
 
         }
     }
