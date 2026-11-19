@@ -103,7 +103,7 @@ namespace ConsoleApp8_SlotMachine
                 for (int columnindex = 0; columnindex < GRID_SIZE; columnindex++)
 
                 {
-                    SlotMachineGrid[rowindex, columnindex] =  rng.Next(1, 4);
+                    SlotMachineGrid[rowindex, columnindex] = 1; //rng.Next(1, 4);
 
 
                 }
@@ -140,6 +140,7 @@ namespace ConsoleApp8_SlotMachine
                 if (win)
                 {
                     Console.WriteLine("Wow, You win!");
+                    Console.WriteLine("Win amount = " + betAmount * betAmount);
                 }
 
                 else
@@ -174,6 +175,7 @@ namespace ConsoleApp8_SlotMachine
                 if (win)
                 {
                     Console.WriteLine("Wow, You won!");
+                    Console.WriteLine("Win amount = " + betAmount * betAmount);
                 }
 
                 else
@@ -206,6 +208,7 @@ namespace ConsoleApp8_SlotMachine
                 if (win)
                 {
                     Console.WriteLine("Wow, You won!");
+                    Console.WriteLine("Win amount = " + betAmount * betAmount);
                 }
 
                 else
@@ -243,6 +246,7 @@ namespace ConsoleApp8_SlotMachine
                 if (win)
                 {
                     Console.WriteLine("Wow, You won!");
+                    Console.WriteLine("Win amount =" + betAmount * betAmount);
                 }
 
                 else
